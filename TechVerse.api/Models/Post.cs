@@ -17,10 +17,8 @@ namespace TechVerse.Api.Models
         [ForeignKey("UserId")]
         public User? User { get; set; }
 
-        // Bu gönderiye yapılan beğeniler
         public ICollection<Like> Likes { get; set; } = new List<Like>();
 
-        // Bu gönderiye yapılan yorumlar
         public ICollection<Comment> Comments { get; set; } = new List<Comment>();
     }
 }

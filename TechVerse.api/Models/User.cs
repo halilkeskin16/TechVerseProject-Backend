@@ -12,20 +12,21 @@ namespace TechVerse.Api.Models
 
         [Required]
         [EmailAddress]
-        public string? Email { get; set; } // Benzersiz e-posta
+        public string? Email { get; set; } 
 
-        [Required]
         public string? PasswordHash { get; set; }
 
         [StringLength(50)]
-        public string? DisplayName { get; set; } // Ekranda görünecek ad (örn: Halil Keskin)
+        public string? DisplayName { get; set; }
 
         [StringLength(160)]
-        public string? Bio { get; set; } // Kullanıcı biyografisi
+        public string? Bio { get; set; }
 
-        public string? ProfileImageUrl { get; set; } // Profil fotoğrafının URL'i
+        public string? ProfileImageUrl { get; set; }
         
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+        public string? PasswordSalt { get; set; } 
 
 
         // Bu kullanıcının gönderileri

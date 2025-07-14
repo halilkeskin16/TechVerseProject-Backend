@@ -130,3 +130,13 @@
 /Users/halilkeskin/development/TechVerseProject/TechVerse.api/obj/Debug/net9.0/TechVerse.api.pdb
 /Users/halilkeskin/development/TechVerseProject/TechVerse.api/obj/Debug/net9.0/TechVerse.api.genruntimeconfig.cache
 /Users/halilkeskin/development/TechVerseProject/TechVerse.api/obj/Debug/net9.0/ref/TechVerse.api.dll
+/Users/halilkeskin/development/TechVerseProject/TechVerse.api/obj/Debug/net9.0/TechVerse.api.sourcelink.json
+/Users/halilkeskin/development/TechVerseProject/TechVerse.api/bin/Debug/net9.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/halilkeskin/development/TechVerseProject/TechVerse.api/bin/Debug/net9.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/halilkeskin/development/TechVerseProject/TechVerse.api/bin/Debug/net9.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/halilkeskin/development/TechVerseProject/TechVerse.api/bin/Debug/net9.0/Microsoft.IdentityModel.Logging.dll
+/Users/halilkeskin/development/TechVerseProject/TechVerse.api/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.dll
+/Users/halilkeskin/development/TechVerseProject/TechVerse.api/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/halilkeskin/development/TechVerseProject/TechVerse.api/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
+/Users/halilkeskin/development/TechVerseProject/TechVerse.api/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/halilkeskin/development/TechVerseProject/TechVerse.api/bin/Debug/net9.0/Scalar.AspNetCore.dll
