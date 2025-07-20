@@ -1,7 +1,7 @@
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using TechVerse.Api.Data;
+using TechVerse.Api.Data; 
 
 namespace TechVerse.Api.Controllers
 {
@@ -10,36 +10,51 @@ namespace TechVerse.Api.Controllers
     [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {
-        private readonly DataContext _context;
-        public UsersController(DataContext context)
+        private readonly IUserRepository _userRepo;
+        public UsersController(IUserRepository userRepo)
         {
-            _context = context;
+            _userRepo = userRepo;
         }
 
         [HttpGet("me")] // api/users/me
         public async Task<IActionResult> GetMyProfile()
         {
             var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
-
             if (userIdClaim == null)
             {
-                return Unauthorized("Kullanıcı kimliği bulunamadı veya yetkisiz erişim");
+                return Unauthorized();
             }
+            var userId = int.Parse(userIdClaim.Value);
 
-            if (!int.TryParse(userIdClaim.Value, out int userId))
-            {
-                return BadRequest("Geçersiz kullanıcı kimliği");
-            }
-
-            var user = await _context.Users.FindAsync(userId);
+            var user = await _userRepo.GetUserById(userId);
 
             if (user == null)
             {
-                return NotFound("Kullanıcı bulunamadı");
+                return NotFound("Kullanıcı bulunamadı.");
+            }
+            
+            return Ok(user);
+        }
+
+        [HttpPost("{userIdToFollow}/follow")]
+        public async Task<IActionResult> FollowUser(int userIdToFollow)
+        {
+            var followerIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (followerIdClaim == null)
+            {
+                return Unauthorized();
             }
 
-            return Ok(user);
-        
+            var followerId = int.Parse(followerIdClaim.Value);
+
+            var result = await _userRepo.FollowUser(followerId, userIdToFollow);
+
+            if (!result)
+            {
+                return BadRequest("İşlem gerçekleştirilemedi.");
+            }
+
+            return Ok(new { message = "İşlem başarılı." });
         }
     }
 }

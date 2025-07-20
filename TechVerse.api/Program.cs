@@ -14,6 +14,7 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IPostRepository, PostRepository>();
 
 // ... (JWT Authentication servislerin burada)
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

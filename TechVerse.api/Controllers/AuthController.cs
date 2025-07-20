@@ -35,7 +35,7 @@ namespace TechVerse.Api.Controllers
             {
                 Username = userForRegisterDto.Username,
                 Email = userForRegisterDto.Email,
-                DisplayName = userForRegisterDto.Username, // DisplayName defaults to Username
+                DisplayName = userForRegisterDto.Username,
             };
 
             var createdUser = await _authRepo.Register(user, userForRegisterDto.Password);
@@ -48,14 +48,11 @@ namespace TechVerse.Api.Controllers
             if (userForLoginDto.Username == null || userForLoginDto.Password == null)
                 return BadRequest("Kullanıcı adı ve şifre boş olamaz.");
 
-            var userFromRepo = await _authRepo.Login(userForLoginDto.Username, userForLoginDto.Password);
+            var userFromRepo = await _authRepo.Login(userForLoginDto.Username!, userForLoginDto.Password!);
 
             if (userFromRepo == null)
                 return Unauthorized();
 
-            // --- TOKEN OLUŞTURMA BAŞLANGICI ---
-            
-            // 1. Token'ın içinde yer alacak bilgileri (claims) hazırlıyoruz.
             var claims = new[]
             {
                 new Claim(ClaimTypes.NameIdentifier, userFromRepo.Id.ToString()),
@@ -75,9 +72,10 @@ namespace TechVerse.Api.Controllers
             var tokenHandler = new JwtSecurityTokenHandler();
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
-            return Ok(new {
+            return Ok(new
+            {
                 token = tokenHandler.WriteToken(token)
             });
         }
-}
+    }
 }

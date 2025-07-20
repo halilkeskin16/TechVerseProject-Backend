@@ -15,7 +15,6 @@ namespace TechVerse.Api.Data
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Follow> Follows { get; set; }
 
-        // --- YENİ EKLENEN MANUEL YAPILANDIRMA METODU ---
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

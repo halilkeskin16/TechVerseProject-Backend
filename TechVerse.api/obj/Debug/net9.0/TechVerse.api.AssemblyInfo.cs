@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TechVerse.api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e4d6a09422810284f9381ddeae94e0ba6dddf65b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+406c7a4bd8bf04d795b56f8b7ff71d7cdde9834a")]
 [assembly: System.Reflection.AssemblyProductAttribute("TechVerse.api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TechVerse.api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

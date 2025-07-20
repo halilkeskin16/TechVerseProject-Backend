@@ -1,4 +1,3 @@
-// Dosya: Dtos/UserForRegisterDto.cs
 using System.ComponentModel.DataAnnotations;
 
 namespace TechVerse.Api.Dtos
